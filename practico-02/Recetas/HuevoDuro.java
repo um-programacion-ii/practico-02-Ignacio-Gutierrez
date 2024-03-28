@@ -1,10 +1,16 @@
 package Recetas;
+import Entidades.*;
+import Interfaces.Cocinable;
 
-import Entidades.Ingrediente;
-import Entidades.Receta;
-
-public class HuevoDuro extends Receta {
+public class HuevoDuro extends Receta implements Cocinable {
     public HuevoDuro() {
-        super(10, new Ingrediente[]{new Ingrediente("Huevo", 1), new Ingrediente("Agua", 400)}, "Hervir el huevo durante 10 minutos");
+        super(10, new Ingrediente[]{new Ingrediente("Huevo", 1),
+                        new Ingrediente("Agua", 400)},
+                "Hervir el huevo durante 10 minutos");
+    }
+
+    @Override
+    public void cocinar() {
+        System.out.println("Cocinando la receta...");
     }
 }

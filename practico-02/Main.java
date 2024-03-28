@@ -18,8 +18,6 @@ public class Main {
         despensa.addIngrediente(new Ingrediente("Ternera",8)); //Ternera al horno
         despensa.addIngrediente(new Ingrediente("Papa",3));   //Ternera al horno
 
-        //System.out.println("\nPrimer abastecimiento de la despensa");
-        //despensa.mostrarIngredientes();
 
         CocinaService cocinaService = new CocinaService();
 

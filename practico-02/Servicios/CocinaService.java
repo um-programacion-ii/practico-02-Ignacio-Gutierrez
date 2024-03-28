@@ -1,6 +1,7 @@
 package Servicios;
 
 import Entidades.*;
+import Interfaces.Cocinable;
 import Recetas.ArrozConLeche;
 import Recetas.HuevoDuro;
 import Recetas.TerneraAlHorno;
@@ -9,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CocinaService {
-    private static final Map<Integer, Receta> recetas = new HashMap<>();
+    private static final Map<Integer, Cocinable> recetas = new HashMap<>();
 
     static {
         recetas.put(1, new ArrozConLeche());
@@ -36,6 +37,7 @@ public class CocinaService {
             }
 
             if (ingredientesSuficientes) {
+                recetas.get(numeroReceta).cocinar();
                 System.out.println("¡La receta ha sido preparada!");
                 return true;
             } else {
