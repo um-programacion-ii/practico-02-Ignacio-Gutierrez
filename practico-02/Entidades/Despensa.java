@@ -1,5 +1,7 @@
 package Entidades;
 
+import Interfaces.Despensable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,4 +49,5 @@ public class Despensa {
             System.out.println(ingrediente.getNombre() + ": " + ingrediente.getCantidad());
         }
     }
+
 }

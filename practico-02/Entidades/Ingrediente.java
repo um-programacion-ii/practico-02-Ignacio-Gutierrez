@@ -5,8 +5,8 @@ public class Ingrediente {
     private double cantidad;
 
     public Ingrediente(String nombre, double cantidad) {
-        this.nombre=nombre;
-        this.cantidad=cantidad;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
     }
 
     public void sacar(double cantidadARetirar) {

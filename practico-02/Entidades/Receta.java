@@ -23,24 +23,4 @@ public class Receta {
     public Ingrediente[] getIngredientes() {
         return this.ingredientes;
     }
-
-    public int getTiempoCoccion() {
-        return tiempoCoccion;
-    }
-
-    public void setTiempoCoccion(int tiempoCoccion) {
-        this.tiempoCoccion = tiempoCoccion;
-    }
-
-    public void setIngredientes(Ingrediente[] ingredientes) {
-        this.ingredientes = ingredientes;
-    }
-
-    public String getPreparacion() {
-        return preparacion;
-    }
-
-    public void setPreparacion(String preparacion) {
-        this.preparacion = preparacion;
-    }
 }
