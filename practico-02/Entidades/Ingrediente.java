@@ -1,15 +1,17 @@
 package Entidades;
 
-public class Ingrediente {
-    private String nombre;
-    private double cantidad;
+import Interfaces.Despensable;
 
-    public Ingrediente(String nombre, double cantidad) {
+public class Ingrediente implements Despensable {
+    private String nombre;
+    private int cantidad;
+
+    public Ingrediente(String nombre, int cantidad) {
         this.nombre = nombre;
         this.cantidad = cantidad;
     }
 
-    public void sacar(double cantidadARetirar) {
+    public void sacar(int cantidadARetirar) {
         if (this.cantidad >= cantidadARetirar) {
             this.cantidad -= cantidadARetirar;
             System.out.println("Se retiró " + cantidadARetirar + " de " + nombre + ", quedan " + this.cantidad+ ".");
@@ -21,15 +23,23 @@ public class Ingrediente {
         return nombre;
     }
 
+    @Override
+    public int getCantidad() {
+        return cantidad;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public double getCantidad() {
-        return cantidad;
+
+
+    @Override
+    public void getClass(int i) {
+
     }
 
-    public void setCantidad(double cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 

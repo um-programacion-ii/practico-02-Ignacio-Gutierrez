@@ -7,16 +7,16 @@ public class Main {
 
         Chef chef = new Chef("Francisco Mallmann", 0, despensa);
 
-        despensa.addIngrediente(new Ingrediente("Arroz",5000));  //Arroz con leche
-        despensa.addIngrediente(new Ingrediente("Leche",2000));  //Arroz con leche
-        despensa.addIngrediente(new Ingrediente("Canela",10));   //Arroz con leche
-        despensa.addIngrediente(new Ingrediente("Azucar",500)); //Arroz con leche
+        despensa.addElemento(new Ingrediente("Arroz",5000));  //Arroz con leche
+        despensa.addElemento(new Ingrediente("Leche",2000));  //Arroz con leche
+        despensa.addElemento(new Ingrediente("Canela",10));   //Arroz con leche
+        despensa.addElemento(new Ingrediente("Azucar",500)); //Arroz con leche
 
-        despensa.addIngrediente(new Ingrediente("Huevo",12));   //Huevo duro
+        despensa.addElemento(new Ingrediente("Huevo",12));   //Huevo duro
         //despensa.addIngrediente(new Ingrediente("Agua",10000)); //Huevo duro
 
-        despensa.addIngrediente(new Ingrediente("Ternera",8)); //Ternera al horno
-        despensa.addIngrediente(new Ingrediente("Papa",3));   //Ternera al horno
+        despensa.addElemento(new Ingrediente("Ternera",8)); //Ternera al horno
+        despensa.addElemento(new Ingrediente("Papa",3));   //Ternera al horno
 
 
         CocinaService cocinaService = new CocinaService();

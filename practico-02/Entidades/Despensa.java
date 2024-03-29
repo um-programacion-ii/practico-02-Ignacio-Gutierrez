@@ -6,31 +6,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Despensa {
-    private final List<Ingrediente> ingredientes;
+    private final List<Despensable> elementos;
 
     public Despensa() {
-        this.ingredientes = new ArrayList<>();
+        this.elementos = new ArrayList<>();
     }
 
-    public void addIngrediente(Ingrediente nuevoIngrediente) {
+    public void addElemento(Despensable nuevoElemento) {
         boolean encontrado = false;
-        for (Ingrediente ingrediente: ingredientes) {
-            if (ingrediente.getNombre().equals(nuevoIngrediente.getNombre())) {
-                ingrediente.setCantidad(ingrediente.getCantidad() + nuevoIngrediente.getCantidad());
+        for (Despensable elemento: elementos) {
+            if (elemento.getNombre().equals(nuevoElemento.getNombre())) {
+                elemento.getClass(elemento.getCantidad() + nuevoElemento.getCantidad());
                 encontrado = true;
                 break;
             }
         }
         if (!encontrado) {
-            ingredientes.add(nuevoIngrediente);
+            elementos.add(nuevoElemento);
         }
     }
 
-    public boolean getIngrediente(String nombre, double cantidad) {
+    public boolean getIngrediente(String nombre, int cantidad) {
         boolean encontrado = false;
-        for (Ingrediente ingrediente: ingredientes) {
-            if (ingrediente.getNombre().equals(nombre)) {
-                ingrediente.sacar(cantidad);
+        for (Despensable elemento: elementos) {
+            if (elemento.getNombre().equals(nombre)) {
+                elemento.sacar(cantidad);
                 encontrado = true;
                 break;
             }
@@ -43,10 +43,10 @@ public class Despensa {
         }
     }
 
-    public void mostrarIngredientes() {
-        System.out.println("Ingredientes en la despensa:");
-        for (Ingrediente ingrediente : ingredientes) {
-            System.out.println(ingrediente.getNombre() + ": " + ingrediente.getCantidad());
+    public void mostrarElemento() {
+        System.out.println("Elementos en la despensa:");
+        for (Despensable elemento : elementos) {
+            System.out.println(elemento.getNombre() + ": " + elemento.getCantidad());
         }
     }
 

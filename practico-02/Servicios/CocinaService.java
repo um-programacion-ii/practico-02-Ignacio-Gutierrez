@@ -29,7 +29,7 @@ public class CocinaService {
             boolean ingredientesSuficientes = true;
             for (Ingrediente ingrediente : receta.getIngredientes()) {
                 String nombreIngrediente = ingrediente.getNombre();
-                double cantidadRequerida = ingrediente.getCantidad();
+                int cantidadRequerida = ingrediente.getCantidad();
                 if (!despensa.getIngrediente(nombreIngrediente, cantidadRequerida)) {
                     ingredientesSuficientes = false;
                     break;
