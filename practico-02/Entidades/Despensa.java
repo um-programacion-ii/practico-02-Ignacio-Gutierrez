@@ -26,7 +26,7 @@ public class Despensa {
         }
     }
 
-    public boolean getIngrediente(String nombre, int cantidad) {
+    public boolean getElemento(String nombre, int cantidad) {
         boolean encontrado = false;
         for (Despensable elemento: elementos) {
             if (elemento.getNombre().equals(nombre)) {
