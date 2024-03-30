@@ -30,18 +30,41 @@ public class CocinaService {
             for (Ingrediente ingrediente : receta.getIngredientes()) {
                 String nombreIngrediente = ingrediente.getNombre();
                 int cantidadRequerida = ingrediente.getCantidad();
-                if (!despensa.getElemento(nombreIngrediente, cantidadRequerida)) {
+                if (!despensa.checkElemento(nombreIngrediente, cantidadRequerida)) {
                     ingredientesSuficientes = false;
                     break;
                 }
             }
 
+
+            boolean utensiliosSuficientes = true;
             if (ingredientesSuficientes) {
-                recetas.get(numeroReceta).cocinar();
-                System.out.println("¡La receta ha sido preparada!");
+                for (Utensilio utensilio : receta.getUtensilios()) {
+                    String nombreUtensilio = utensilio.getNombre();
+                    int vidaUtilRequerida = utensilio.getVidaUtil();
+                    if (!despensa.checkUtensilio(nombreUtensilio, vidaUtilRequerida)) {
+                        utensiliosSuficientes = false;
+                        break;
+                    }
+                }
+            }
+
+            if (ingredientesSuficientes && utensiliosSuficientes) {
+                ((Cocinable) receta).cocinar();
+                for (Ingrediente ingrediente : receta.getIngredientes()) {
+                    String nombreIngrediente = ingrediente.getNombre();
+                    int cantidadRequerida = ingrediente.getCantidad();
+                    despensa.getElemento(nombreIngrediente, cantidadRequerida);
+                }
+                for (Utensilio utensilio : receta.getUtensilios()) {
+                    String nombreUtensilio = utensilio.getNombre();
+                    int vidaUtilRequerida = utensilio.getVidaUtil();
+                    despensa.getUtensilio(nombreUtensilio, vidaUtilRequerida);
+                }
+
                 return true;
             } else {
-                System.out.println("No hay suficientes ingredientes para preparar la receta.");
+                System.out.println("No se pueden cocinar la receta.");
                 return false;
             }
         }

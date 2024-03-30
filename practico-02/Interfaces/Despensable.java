@@ -8,4 +8,5 @@ public interface Despensable {
     void getClass(int i);
 
     void sacar(int cantidad);
+
 }

@@ -8,7 +8,9 @@ public class ArrozConLeche extends Receta implements Cocinable {
                                                 new Ingrediente("Leche", 1000),
                                                 new Ingrediente("Azucar", 100),
                                                 new Ingrediente("Canela", 5)},
-                                     "Cocinar el arroz con leche, azúcar y canela durante 45 minutos");
+                               new Utensilio[]{new Utensilio("Olla", 1),
+                                              new Utensilio("Cuchara", 1)},
+                                                "Cocinar el arroz con leche, azúcar y canela durante 45 minutos");
     }
     @Override
     public void cocinar() {

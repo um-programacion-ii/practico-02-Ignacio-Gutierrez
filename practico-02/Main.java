@@ -18,6 +18,12 @@ public class Main {
         despensa.addElemento(new Ingrediente("Ternera",8)); //Ternera al horno
         despensa.addElemento(new Ingrediente("Papa",3));   //Ternera al horno
 
+        despensa.addUtensilio(new Utensilio("Olla",0));
+        despensa.addUtensilio(new Utensilio("Olla",500));
+        despensa.addUtensilio(new Utensilio("Cuchara",500));
+        despensa.addUtensilio(new Utensilio("Bandeja",500));
+        despensa.addUtensilio(new Utensilio("Cuchillo",500));
+        despensa.addUtensilio(new Utensilio("Tenedor",500));
 
         CocinaService cocinaService = new CocinaService();
 
@@ -29,16 +35,6 @@ public class Main {
         chef.prepararReceta(3, cocinaService);
         System.out.println("\nNada:");
         chef.prepararReceta(4, cocinaService);
-
-
-        //System.out.println("\nRetirar ingredientes:");
-        //despensa.getIngrediente("Huevo", 11);
-        //despensa.getIngrediente("Ternera", 7);
-        //despensa.getIngrediente("Arroz", 4999);
-
-        //System.out.println("\nEstado despensa:");
-        //despensa.mostrarIngredientes();
-
 
     }
 }
