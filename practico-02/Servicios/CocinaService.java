@@ -1,6 +1,7 @@
 package Servicios;
 
 import Entidades.*;
+import Excepciones.VidaUtilInsuficiente;
 import Interfaces.Cocinable;
 import Recetas.ArrozConLeche;
 import Recetas.HuevoDuro;
@@ -18,7 +19,7 @@ public class CocinaService {
         recetas.put(3, new TerneraAlHorno());
     }
 
-    public boolean comenzarACocinar(int numeroReceta, Despensa despensa) {
+    public boolean comenzarACocinar(int numeroReceta, Despensa despensa) throws VidaUtilInsuficiente {
         Receta receta = (Receta) recetas.get(numeroReceta);
         if (receta == null) {
             System.out.println("No existe esa receta en el menú.");

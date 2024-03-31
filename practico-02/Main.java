@@ -1,7 +1,8 @@
 import Entidades.*;
+import Excepciones.VidaUtilInsuficiente;
 import Servicios.CocinaService;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws VidaUtilInsuficiente {
 
         Despensa despensa = new Despensa();
 
@@ -13,13 +14,13 @@ public class Main {
         despensa.addElemento(new Ingrediente("Azucar",500)); //Arroz con leche
 
         despensa.addElemento(new Ingrediente("Huevo",12));   //Huevo duro
-        //despensa.addIngrediente(new Ingrediente("Agua",10000)); //Huevo duro
+        despensa.addElemento(new Ingrediente("Agua",10000)); //Huevo duro
 
         despensa.addElemento(new Ingrediente("Ternera",8)); //Ternera al horno
         despensa.addElemento(new Ingrediente("Papa",3));   //Ternera al horno
 
         despensa.addUtensilio(new Utensilio("Olla",0));
-        despensa.addUtensilio(new Utensilio("Olla",500));
+        despensa.addUtensilio(new Utensilio("Olla",0));
         despensa.addUtensilio(new Utensilio("Cuchara",500));
         despensa.addUtensilio(new Utensilio("Bandeja",500));
         despensa.addUtensilio(new Utensilio("Cuchillo",500));

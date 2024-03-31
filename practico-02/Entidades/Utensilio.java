@@ -13,9 +13,9 @@ public class Utensilio implements Despensable, Reutilizable {
     }
 
 
-    public void usar() {
-        if (vidaUtil > 0) {
-            vidaUtil--;
+    public void usar(int vidaUtilNecesaria) {
+        if (vidaUtil >= vidaUtilNecesaria) {
+            vidaUtil -= vidaUtilNecesaria;
             System.out.println("El utensilio " + nombre + " ha sido utilizado. Vida útil restante: " + vidaUtil);
         } else {
             System.out.println("El utensilio " + nombre + " ha llegado al final de su vida útil.");
@@ -35,15 +35,6 @@ public class Utensilio implements Despensable, Reutilizable {
         return vidaUtil;
     }
 
-    public void setVidaUtil(int vidaUtil) {
-        this.vidaUtil = vidaUtil;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-
     @Override
     public void getClass(int i) {
     }
@@ -58,4 +49,5 @@ public class Utensilio implements Despensable, Reutilizable {
     public String toString() {
         return "Quedan " + vidaUtil + " usos de " + nombre + ".";
     }
+
 }

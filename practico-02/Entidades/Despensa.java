@@ -1,5 +1,6 @@
 package Entidades;
 
+import Excepciones.VidaUtilInsuficiente;
 import Interfaces.Despensable;
 
 import java.util.HashMap;
@@ -59,10 +60,10 @@ public class Despensa {
         utensilios.put(nombre, nuevoUtensilio);
     }
 
-    public boolean getUtensilio(String nombre, int vidaUtil) {
+    public boolean getUtensilio(String nombre, int vidaUtil) throws VidaUtilInsuficiente {
         if (utensilios.containsKey(nombre)) {
             Utensilio utensilio = utensilios.get(nombre);
-            utensilio.usar();
+            utensilio.usar(vidaUtil);
             return true;
         } else {
             System.out.println("No es posible desgastar " + vidaUtil + " de " + nombre + ", no hay en la despensa.");

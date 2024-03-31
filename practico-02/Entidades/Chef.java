@@ -1,5 +1,6 @@
 package Entidades;
 
+import Excepciones.VidaUtilInsuficiente;
 import Servicios.*;
 public class Chef {
     private String nombre;
@@ -12,7 +13,7 @@ public class Chef {
         this.despensa = despensa;
     }
 
-    public void prepararReceta(int numeroReceta, CocinaService cocinaService) {
+    public void prepararReceta(int numeroReceta, CocinaService cocinaService) throws VidaUtilInsuficiente {
         boolean recetaPreparada = cocinaService.comenzarACocinar(numeroReceta, despensa);
         if (recetaPreparada) {
             System.out.println("El Chef " + nombre + ", con " + estrellasMichelin + " estrellas Michelin, espera que disfrute su comida.");
