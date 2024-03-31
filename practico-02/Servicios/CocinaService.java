@@ -1,6 +1,7 @@
 package Servicios;
 
 import Entidades.*;
+import Excepciones.StockInsuficiente;
 import Excepciones.VidaUtilInsuficiente;
 import Interfaces.Cocinable;
 import Recetas.ArrozConLeche;
@@ -19,7 +20,7 @@ public class CocinaService {
         recetas.put(3, new TerneraAlHorno());
     }
 
-    public boolean comenzarACocinar(int numeroReceta, Despensa despensa) throws VidaUtilInsuficiente {
+    public boolean comenzarACocinar(int numeroReceta, Despensa despensa) throws VidaUtilInsuficiente, StockInsuficiente {
         Receta receta = (Receta) recetas.get(numeroReceta);
         if (receta == null) {
             System.out.println("No existe esa receta en el menú.");
@@ -31,7 +32,10 @@ public class CocinaService {
             for (Ingrediente ingrediente : receta.getIngredientes()) {
                 String nombreIngrediente = ingrediente.getNombre();
                 int cantidadRequerida = ingrediente.getCantidad();
-                if (!despensa.checkElemento(nombreIngrediente, cantidadRequerida)) {
+                try {
+                    despensa.checkElemento(nombreIngrediente, cantidadRequerida);
+                } catch (StockInsuficiente e) {
+                    System.out.println(e.getMessage());
                     ingredientesSuficientes = false;
                     break;
                 }
@@ -43,7 +47,10 @@ public class CocinaService {
                 for (Utensilio utensilio : receta.getUtensilios()) {
                     String nombreUtensilio = utensilio.getNombre();
                     int vidaUtilRequerida = utensilio.getVidaUtil();
-                    if (!despensa.checkUtensilio(nombreUtensilio, vidaUtilRequerida)) {
+                    try {
+                        despensa.checkUtensilio(nombreUtensilio, vidaUtilRequerida);
+                    } catch (VidaUtilInsuficiente e) {
+                        System.out.println(e.getMessage());
                         utensiliosSuficientes = false;
                         break;
                     }

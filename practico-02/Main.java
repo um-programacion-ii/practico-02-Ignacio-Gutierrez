@@ -1,8 +1,9 @@
 import Entidades.*;
+import Excepciones.StockInsuficiente;
 import Excepciones.VidaUtilInsuficiente;
 import Servicios.CocinaService;
 public class Main {
-    public static void main(String[] args) throws VidaUtilInsuficiente {
+    public static void main(String[] args) throws VidaUtilInsuficiente, StockInsuficiente {
 
         Despensa despensa = new Despensa();
 

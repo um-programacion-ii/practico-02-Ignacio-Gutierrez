@@ -1,5 +1,6 @@
 package Entidades;
 
+import Excepciones.StockInsuficiente;
 import Excepciones.VidaUtilInsuficiente;
 import Interfaces.Despensable;
 
@@ -21,7 +22,7 @@ public class Despensa {
         }
     }
 
-    public boolean getElemento(String nombre, int cantidad) {
+    public boolean getElemento(String nombre, int cantidad) throws StockInsuficiente {
         if (elementos.containsKey(nombre)) {
             Despensable elemento = elementos.get(nombre);
             elemento.sacar(cantidad);
@@ -32,7 +33,7 @@ public class Despensa {
         }
     }
 
-    public  boolean checkElemento(String nombre, int cantidad) {
+    public  boolean checkElemento(String nombre, int cantidad) throws StockInsuficiente {
         if (elementos.containsKey(nombre)) {
             Despensable elemento = elementos.get(nombre);
             if (elemento.getCantidad() >= cantidad) {
@@ -71,7 +72,7 @@ public class Despensa {
         }
     }
 
-    public  boolean checkUtensilio(String nombre, int vidaUtil) {
+    public  boolean checkUtensilio(String nombre, int vidaUtil) throws VidaUtilInsuficiente{
         if (utensilios.containsKey(nombre)) {
             Despensable utensilio = utensilios.get(nombre);
             if (((Utensilio) utensilio).getVidaUtil() >= vidaUtil) {

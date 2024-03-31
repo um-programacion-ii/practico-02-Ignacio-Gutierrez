@@ -1,5 +1,6 @@
 package Entidades;
 
+import Excepciones.StockInsuficiente;
 import Interfaces.Despensable;
 
 public class Ingrediente implements Despensable {
@@ -11,12 +12,12 @@ public class Ingrediente implements Despensable {
         this.cantidad = cantidad;
     }
 
-    public void sacar(int cantidadARetirar) {
+    public void sacar(int cantidadARetirar) throws StockInsuficiente {
         if (this.cantidad >= cantidadARetirar) {
             this.cantidad -= cantidadARetirar;
-            System.out.println("Se retiró " + cantidadARetirar + " de " + nombre + ", quedan " + this.cantidad+ ".");
+            System.out.println("Se retiró " + cantidadARetirar + " de " + nombre + ", quedan " + cantidad+ ".");
         } else {
-            System.out.println("No es posible retirar " + cantidadARetirar + " de " + nombre + ", quedan " + this.cantidad + ".");
+            System.out.println("No es posible retirar " + cantidadARetirar + " de " + nombre + ", quedan " + cantidad + ".");
         }
     }
     public String getNombre() {
