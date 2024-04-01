@@ -93,4 +93,9 @@ public class Despensa {
             System.out.println(entry.getKey() + ": " + entry.getValue().getVidaUtil());
         }
     }
+
+    public Map<String, Utensilio> getUtensilios() {
+        return utensilios;
+    }
+
 }

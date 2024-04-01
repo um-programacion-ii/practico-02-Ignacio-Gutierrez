@@ -35,6 +35,14 @@ public class Utensilio implements Despensable, Reutilizable {
         return vidaUtil;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setVidaUtil(int vidaUtil) {
+        this.vidaUtil = vidaUtil;
+    }
+
     @Override
     public void getClass(int i) {
     }
