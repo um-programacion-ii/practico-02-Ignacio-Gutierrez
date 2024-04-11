@@ -30,11 +30,9 @@ public class DespensaService {
             String nombreIngrediente = ingrediente.getNombre();
             int cantidadRequerida = ingrediente.getCantidad();
             try {
-                ingredientesSuficientes = despensa.checkElemento(nombreIngrediente, cantidadRequerida);
-                if (!ingredientesSuficientes) {
-                    break;
-                }
+                despensa.checkElemento(nombreIngrediente, cantidadRequerida);
             } catch (StockInsuficiente e) {
+                ingredientesSuficientes = false;
                 System.out.println(e.getMessage());
                 break;
             }
@@ -47,10 +45,8 @@ public class DespensaService {
                 int vidaUtilRequerida = utensilio.getVidaUtil();
                 try {
                     utensiliosSuficientes = despensa.checkUtensilio(nombreUtensilio, vidaUtilRequerida);
-                    if (!utensiliosSuficientes) {
-                        break;
-                    }
                 } catch (VidaUtilInsuficiente e) {
+                    utensiliosSuficientes = false;
                     System.out.println(e.getMessage());
                     break;
                 }

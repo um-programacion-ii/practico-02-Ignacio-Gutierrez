@@ -13,7 +13,7 @@ public class Utensilio implements Despensable, Reutilizable {
     }
 
 
-    public void usar(int vidaUtilNecesaria) {
+    public void utilizar(int vidaUtilNecesaria) {
         if (vidaUtil >= vidaUtilNecesaria) {
             vidaUtil -= vidaUtilNecesaria;
             System.out.println("El utensilio " + nombre + " ha sido utilizado. Vida útil restante: " + vidaUtil);
@@ -48,10 +48,9 @@ public class Utensilio implements Despensable, Reutilizable {
     }
 
     @Override
-    public void sacar(int cantidad) {
+    public void despensar(int cantidad) {
 
     }
-
 
     @Override
     public String toString() {

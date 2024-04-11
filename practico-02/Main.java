@@ -27,7 +27,7 @@ public class Main {
 
         List<Utensilio> utensilios = Arrays.asList(
                 new Utensilio("Olla",0),
-                new Utensilio("Olla",0),
+                new Utensilio("Olla",1),
                 new Utensilio("Cuchara",500),
                 new Utensilio("Bandeja",500),
                 new Utensilio("Cuchillo",500),

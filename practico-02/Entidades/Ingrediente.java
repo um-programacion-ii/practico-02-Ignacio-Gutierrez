@@ -12,7 +12,7 @@ public class Ingrediente implements Despensable {
         this.cantidad = cantidad;
     }
 
-    public void sacar(int cantidadARetirar) throws StockInsuficiente {
+    public void despensar(int cantidadARetirar) {
         if (this.cantidad >= cantidadARetirar) {
             this.cantidad -= cantidadARetirar;
             System.out.println("Se retiró " + cantidadARetirar + " de " + nombre + ", quedan " + cantidad+ ".");

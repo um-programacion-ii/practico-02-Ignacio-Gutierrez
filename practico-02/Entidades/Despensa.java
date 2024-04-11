@@ -22,29 +22,28 @@ public class Despensa {
         }
     }
 
-    public boolean getElemento(String nombre, int cantidad) throws StockInsuficiente {
+    public void getElemento(String nombre, int cantidad) throws StockInsuficiente {
         if (elementos.containsKey(nombre)) {
             Despensable elemento = elementos.get(nombre);
-            elemento.sacar(cantidad);
-            return true;
+            if (elemento.getCantidad() < cantidad) {
+                throw new StockInsuficiente("No es posible retirar " + cantidad + " de " + nombre + ", no hay en la despensa.");
+            }
+            elemento.despensar(cantidad);
         } else {
-            System.out.println("No es posible retirar " + cantidad + " de " + nombre + ", no hay en la despensa.");
-            return false;
+            throw new StockInsuficiente("No es posible retirar " + cantidad + " de " + nombre + ", no hay en la despensa.");
         }
     }
 
-    public  boolean checkElemento(String nombre, int cantidad) throws StockInsuficiente {
+    public boolean checkElemento(String nombre, int cantidad) throws StockInsuficiente {
         if (elementos.containsKey(nombre)) {
             Despensable elemento = elementos.get(nombre);
             if (elemento.getCantidad() >= cantidad) {
                 return true;
             } else {
-                System.out.println("No hay suficiente cantidad de " + nombre + " en la despensa.");
-                return false;
+                throw new StockInsuficiente("No hay suficiente cantidad de " + nombre + " en la despensa.");
             }
         } else {
-            System.out.println("No es posible retirar " + cantidad + " de " + nombre + ", no hay en la despensa.");
-            return false;
+            throw new StockInsuficiente("No es posible retirar " + cantidad + " de " + nombre + ", no hay en la despensa.");
         }
     }
 
@@ -61,29 +60,28 @@ public class Despensa {
         utensilios.put(nombre, nuevoUtensilio);
     }
 
-    public boolean getUtensilio(String nombre, int vidaUtil) throws VidaUtilInsuficiente {
+    public void getUtensilio(String nombre, int vidaUtil) throws VidaUtilInsuficiente {
         if (utensilios.containsKey(nombre)) {
             Utensilio utensilio = utensilios.get(nombre);
-            utensilio.usar(vidaUtil);
-            return true;
+            if (utensilio.getVidaUtil() < vidaUtil) {
+                throw new VidaUtilInsuficiente("No hay suficiente vida útil de " + nombre + " en la despensa.");
+            }
+            utensilio.utilizar(vidaUtil);
         } else {
-            System.out.println("No es posible desgastar " + vidaUtil + " de " + nombre + ", no hay en la despensa.");
-            return false;
+            throw new VidaUtilInsuficiente("No es posible desgastar " + vidaUtil + " de " + nombre + ", no hay en la despensa.");
         }
     }
 
-    public  boolean checkUtensilio(String nombre, int vidaUtil) throws VidaUtilInsuficiente{
+    public boolean checkUtensilio(String nombre, int vidaUtil) throws VidaUtilInsuficiente {
         if (utensilios.containsKey(nombre)) {
             Despensable utensilio = utensilios.get(nombre);
             if (((Utensilio) utensilio).getVidaUtil() >= vidaUtil) {
                 return true;
             } else {
-                System.out.println("No hay suficiente cantidad de " + nombre + " en la despensa.");
-                return false;
+                throw new VidaUtilInsuficiente("No hay suficiente vida útil de " + nombre + " en la despensa.");
             }
         } else {
-            System.out.println("No es posible retirar " + nombre + ", no hay en la despensa.");
-            return false;
+            throw new VidaUtilInsuficiente("No es posible retirar " + nombre + ", no hay en la despensa.");
         }
     }
 

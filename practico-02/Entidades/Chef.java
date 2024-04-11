@@ -22,7 +22,7 @@ public class Chef {
             } else {
                 System.out.println("El Chef " + nombre + ", con " + estrellasMichelin + " estrellas Michelin, dice que debe pedir algo del menú.");
             }
-        } catch (Exception e) {
+        } catch (Exception  e) {
             System.out.println("Receta no disponible en el menú.");
         }
     }
